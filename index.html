@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>title</title>
+  <script src="script.js"></script>
+  <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <script type="text/javascript" src="link.js"></script>
+  <script type="text/javascript" src="morelink.js"></script>
+
+</head>
+
+<body>
+  <a-scene>
+    <a-assests>
+      <img id="ground" src="images/ground2.jpg">
+      <img id="walls" src="images/calming walls.jpg">
+      <img id="mountain" src="images/15194933880_a64f323220_o.jpg">
+      <img id="mountains" src="images/mountains.jpg">
+      <img id="stars" src="images/stars.jpg">
+      <img id="beach" src="images/beach.jpg">
+    </a-assests>
+    <a-entity>
+      <a-camera id="camera">
+        <a-cursor></a-cursor>
+      </a-camera >
+    </a-entity>
+    <a-sky color="black" src=""></a-sky>
+    <!--Scenery Spheres-->
+    <a-plane src="#ground" width="120" height="120" rotation="-90 0 0" position="0 0 0"></a-plane>
+
+    <a-sphere id="mountainSphere" radius="4" position="-51.699 5 53.754" src="#mountains" onclick="mountainSky()">
+      <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="-51.699 5 53.754" to="-51.699 6 53.754" direction="alternate" repeat="indefinite"></a-animation>
+
+    </a-sphere>
+
+    <a-sphere id="beachSphere" radius="4" position="51.053 5 -53.239" src="#beach" onclick="beachSky()">
+      <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="51.053 5 -53.239" to="51.053 6 -53.239" direction="alternate" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+    <a-sphere id="starsSphere" radius="4" position="50.911 5 54.335" src="#stars" rotation="0 -240 0" onclick="starSky()" href="test.html">
+      <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="50.911 5 54.335" to="50.911 6 54.335" direction="alternate" repeat="indefinite"></a-animation>
+    </a-sphere>
+
+
+    <a-sphere id="solidSphere" color="white" radius="4" position="-52.748 5 -53.562" color="grey" onclick="solidSky()">
+      <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="-52.749 5 -53.562" to="-52.749 6 -53.562" direction="alternate" repeat="indefinite"></a-animation>
+    </a-sphere>
+    <!--Walls-->
+    <a-box height="0.5" width="0.5" depth="0.25" color="#ACF0F2" position="1 2.5 -1" href="test.html" >
+  <a-text value="Home" position="0 -0.1 0.2" align= "center" font="monoid" color="#225378" width="3"></a-text>
+</a-box>
+
+    <a-box id="borderwall1" src="#walls" width="120" height="10" depth="1" position="60 5 0" rotation="0 -90 0"> </a-box>
+    <a-box id="borderwall2" src="#walls" width="120" height="10" depth="1" position="-60 5 0" rotation="0 -90 0"> </a-box>
+    <a-box id="borderwall3" src="#walls" width="120" height="10" depth="1" position="0 5 60"> </a-box>
+    <a-box id="borderwall4" src="#walls" width="120" height="10" depth="1" position="0 5 -60"> </a-box>
+
+    <a-box id="starswall1" src="#stars" width="15" height="10" depth="1" position="42.727 5 52.169" rotation="0 -90 0"></a-box>
+    <a-box id="starswall2" src="#stars" width="7" height="10" depth="1" position="56.155 5 45.163"></a-box>
+    <a-box id="starswall3" src="#stars" width="5" height="10" depth="1" position="45.481 5 45.185"></a-box>
+
+    <a-box id="mountainswall1" src="#mountains" width="15" height="10" depth="1" position="-42.727 5 52.169" rotation="0 -90 0"></a-box>
+    <a-box id="mountainswall2" src="#mountains" width="7" height="10" depth="1" position="-56.155 5 45.163"></a-box>
+    <a-box id="mountainswall3" src="#mountains" width="5" height="10" depth="1" position="-45.481 5 45.185"></a-box>
+
+    <a-box id="beachwall1" src="#beach" width="15" height="10" depth="1" position="42.727 5 -52.169" rotation="0 -90 0"></a-box>
+    <a-box id="beachwall2" src="#beach" width="7" height="10" depth="1" position="56.155 5 -45.163"></a-box>
+    <a-box id="beachwall3" src="#beach" width="5" height="10" depth="1" position="45.481 5 -45.185"></a-box>
+
+    <a-box id="solidwall1" color="black" width="15" height="10" depth="1" position="-42.727 5 -52.169" rotation="0 -90 0"></a-box>
+    <a-box id="solidwall2" color="black" width="7" height="10" depth="1" position="-56.155 5 -45.163"></a-box>
+    <a-box id="solidwall3" color="black" width="5" height="10" depth="1" position="-45.481 5 -45.185"></a-box>
+
+    <a-box id="solidstartwall1" color="black" width="6" height="10" depth="1" position="5 5 -8"> </a-box>
+    <a-box id="solidstartwall2" color="black" width="6" height="10" depth="1" position="-5 5 -8"> </a-box>
+    <a-box id="solidstartwall3" color="black" width="4.5" height="3.7" depth="1" position="0.006 8.163 -8.012"> </a-box>
+
+    <a-box id="starsstartwall1" src="#stars" width="6" height="10" depth="1" position="5 5 8"> </a-box>
+    <a-box id="starsstartwall2" src="#stars" width="6" height="10" depth="1" position="-5 5 8"> </a-box>
+    <a-box id="starsstartwall3" src="#stars" width="4.5" height="3.7" depth="1" position="0.006 8.163 8.012"> </a-box>
+
+    <a-box id="mountainsstartwall1" src="#mountains" width="6" height="10" depth="1" position="-8 5 5" rotation="0 -90 0"> </a-box>
+    <a-box id="mountainsstartwall2" src="#mountains" width="6" height="10" depth="1" position="-8 5 -5" rotation="0 -90 0"> </a-box>
+    <a-box id="mountainsstartwall3" src="#mountains" width="4.5" height="3.7" depth="1" position="-8.012 8.163 -0.006" rotation="0 -90 0"> </a-box>
+
+    <a-box id="beachstartwall1" src="#beach" width="6" height="10" depth="1" position="8 5 5" rotation="0 -90 0"> </a-box>
+    <a-box id="beachstartwall2" src="#beach" width="6" height="10" depth="1" position="8 5 -5" rotation="0 -90 0"> </a-box>
+    <a-box id="beachstartwall3" src="#beach" width="4.5" height="3.7" depth="1" position="8.012 8.163 0.006" rotation="0 -90 0"> </a-box>
+
+    <a-box id="insideborderwall1" src="#walls" width="51.3" height="10" depth="1" position="2.5 5 -34" rotation="0 -90 0"> </a-box>
+    <a-box id="insideborderwall2" src="#walls" width="51.3" height="10" depth="1" position="34 5 2.893" rotation="0 0 0"> </a-box>
+    <a-box id="insideborderwall2" src="#walls" width="51.3" height="10" depth="1" position="-2.5 5 34" rotation="0 -90 0"> </a-box>
+    <a-box id="insideborderwall2" src="#walls" width="51.3" height="10" depth="1" position="-34 5 -2.5" rotation="0 0 0"> </a-box>
+
+    <a-box id="wall1" src="#walls" width="51.3" height="10" depth="1" position="2.592 5 20.102" rotation="0 -90.01166961505233 0" scale="-0.475 1 1"> </a-box>
+    <a-box id="wall2" src="#walls" width="51.3" height="10" depth="1" position="2.777 5 46.332" rotation="0 90.01166961505233 0" scale="0.374 1 1"> </a-box>
+    <a-box id="wall3" src="#walls" width="51.3" height="10" depth="1" position="6.046 5 30.626" scale="0.115 1 1"> </a-box>
+    <a-box id="wall4" src="#walls" width="51.3" height="10" depth="1" position="9.291 5 37.255" scale="0.273 1 1"> </a-box>
+    <a-box id="wall5" src="#walls" width="51.3" height="10" depth="1" position="15.729 5 24.209" rotation="0 90 0" scale="0.501 1 1"> </a-box>
+    <a-box id="wall6" src="#walls" width="51.3" height="10" depth="1" position="11.717 5 24.177" scale="0.139 1 1"> </a-box>
+    <a-box id="wall7" src="#walls" width="51.3" height="10" depth="1" position="6.706 5 17.75" scale="0.162 1 1"> </a-box>
+    <a-box id="wall8" src="#walls" width="51.3" height="10" depth="1" position="11.247 0 12.216" scale="-0.162 1 1"> </a-box>
+    <a-box id="wall9" src="#walls" width="51.3" height="10" depth="1" position="18.309 5 55.963" scale="0.624 1 1"> </a-box>
+    <a-box id="wall10" src="#walls" width="51.3" height="10" depth="1" position="26.774 5 49.891" scale="0.624 1 1"> </a-box>
+    <a-box id="wall11" src="#walls" width="51.3" height="10" depth="1" position="19.923 5 43.742" scale="0.667 1 1"> </a-box>
+   <a-box id="wall12" src="#walls" width="51.3" height="10" depth="1" position="28.964 5 37.202" scale="0.555 1 1"> </a-box>
+    <a-box id="wall13" src="#walls" width="51.3" height="10" depth="1" position="42.239 5 41.163" scale="0.172 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall14" src="#walls" width="51.3" height="10" depth="1" position="48.76 5 37.082" scale="0.245 1 -0.886"> </a-box>
+    <a-box id="wall15" src="#walls" width="51.3" height="10" depth="1" position="38.447 5 31.19" scale="0.624 1 1"> </a-box>
+    <a-box id="wall16" src="#walls" width="51.3" height="10" depth="1" position="54.798 5 33.989" scale="-0.122 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall17" src="#walls" width="51.3" height="10" depth="1" position="23.305 5 14.388" scale="-0.439 1 1" rotation="0 90.01166961505233 0"> </a-box>
+    <a-box id="wall19" src="#walls" width="51.3" height="10" depth="1" position="30.822 5 19.492" scale="-0.451 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall18" src="#walls" width="51.3" height="10" depth="1" position="54.768 5 20.25" scale="-0.411 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall20" src="#walls" width="51.3" height="10" depth="1" position="37.208 5 12.891" scale="-0.387 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall21" src="#walls" width="51.3" height="10" depth="1" position="43.163 5 20.601" scale="-0.413 1 1" rotation="0 90 0"> </a-box>
+    <a-box id="wall22" src="#walls" width="51.3" height="10" depth="1" position="48.736 5 14.319" scale="-0.441 1 1" rotation="0 90 0"> </a-box>
+
+<a-sphere id="starspheres1" src="#walls" radius=".2" position="-0.103 1 16.408" onclick="movePlayer5()"></a-sphere>
+<a-sphere id="starspheres2" src="#walls" radius=".2" position="-0.103 1 19.689" onclick="movePlayer6()"></a-sphere>
+<a-sphere id="starspheres3" src="#walls" radius=".2" position="-0.103 1 11.977" onclick="movePlayer4()"></a-sphere>
+<a-sphere id="starspheres4" src="#walls" radius=".2" position="-0.103 1 3.712" onclick="movePlayer2()" ></a-sphere>
+<a-sphere id="starspheres5" src="#walls" radius=".2" position="-0.103 1 7.253" onclick="movePlayer3()"></a-sphere>
+<a-sphere id="starspheres6" src="#walls" radius=".2" position="-0.103 1 1.716" onclick="movePlayer1()"></a-sphere>
+<a-sphere id="starspheres7" src="#walls" radius=".2" position="-0.103 1 24.659" onclick="movePlayer7()"></a-sphere>
+<a-sphere id="starspheres8" src="#walls" radius=".2" position="-0.103 1 29.403" onclick="movePlayer8()"></a-sphere>
+<a-sphere id="starspheres9" src="#walls" radius=".2" position="-0.103 1 33.911" onclick="movePlayer9()"></a-sphere>
+<a-sphere id="starspheres10" src="#walls" radius=".2" position="-0.103 1 37.891" onclick="movePlayer10()"></a-sphere>
+<a-sphere id="starspheres11" src="#walls" radius=".2" position="-0.103 1 41.698" onclick="movePlayer11()"></a-sphere>
+<a-sphere id="starspheres12" src="#walls" radius=".2" position="-0.103 1 45.584" onclick="movePlayer12()"></a-sphere>
+<a-sphere id="starspheres13" src="#walls" radius=".2" position="-0.103 1 49.409" onclick="movePlayer13()"></a-sphere>
+<a-sphere id="starspheres14" src="#walls" radius=".2" position="-0.103 1 53.076" onclick="movePlayer14()"></a-sphere>
+<a-sphere id="starspheres15" src="#walls" radius=".2" position="-0.103 1 56.527" onclick="movePlayer15()"></a-sphere>
+<a-sphere id="starspheres16" src="#walls" radius=".2" position="1.841 1 58.358" onclick="movePlayer16()"></a-sphere>
+<a-sphere id="starspheres17" src="#walls" radius=".2" position="5.179 1 58.396" onclick="movePlayer17()"></a-sphere>
+<a-sphere id="starspheres18" src="#walls" radius=".2" position="9.338 1 58.432" onclick="movePlayer18()"></a-sphere>
+<a-sphere id="starspheres19" src="#walls" radius=".2" position="13.393 1 58.36" onclick="movePlayer19()"></a-sphere>
+<a-sphere id="starspheres20" src="#walls" radius=".2" position="17.359 1 58.442" onclick="movePlayer20()"></a-sphere>
+<a-sphere id="starspheres21" src="#walls" radius=".2" position="21.065 1 58.454" onclick="movePlayer21()"></a-sphere>
+<a-sphere id="starspheres22" src="#walls" radius=".2" position="24.638 1 58.379" onclick="movePlayer22()"></a-sphere>
+<a-sphere id="starspheres23" src="#walls" radius=".2" position="28.728 1 58.39" onclick="movePlayer23()"></a-sphere>
+<a-sphere id="starspheres24" src="#walls" radius=".2" position="32.712 1 58.386" onclick="movePlayer24()"></a-sphere>
+<a-sphere id="starspheres25" src="#walls" radius=".2" position="36.473 1 58.425" onclick="movePlayer25()"></a-sphere>
+<a-sphere id="starspheres26" src="#walls" radius=".2" position="40.128 1 58.392" onclick="movePlayer26()"></a-sphere>
+<a-sphere id="starspheres27" src="#walls" radius=".2" position="40.098 1 55.164" onclick="movePlayer27()"></a-sphere>
+<a-sphere id="starspheres28" src="#walls" radius=".2" position="40.178 1 52.152" onclick="movePlayer28()"></a-sphere>
+<a-sphere id="starspheres29" src="#walls" radius=".2" position="36.32 1 52.175" onclick="movePlayer29()"></a-sphere>
+<a-sphere id="starspheres30" src="#walls" radius=".2" position="32.748 1 52.113" onclick="movePlayer30()"></a-sphere>
+<a-sphere id="starspheres31" src="#walls" radius=".2" position="29.153 1 52.245" onclick="movePlayer31()"></a-sphere>
+<a-sphere id="starspheres32" src="#walls" radius=".2" position="-0.103 1 16.408" onclick="movePlayer32()"></a-sphere>
+<a-sphere id="starspheres33" src="#walls" radius=".2" position="-0.103 1 19.689" onclick="movePlayer33()"></a-sphere>
+<a-sphere id="starspheres34" src="#walls" radius=".2" position="-0.103 1 11.977" onclick="movePlayer34()"></a-sphere>
+<a-sphere id="starspheres35" src="#walls" radius=".2" position="-0.103 1 3.712" onclick="movePlayer35()" ></a-sphere>
+<a-sphere id="starspheres36" src="#walls" radius=".2" position="-0.103 1 7.253" onclick="movePlayer36()"></a-sphere>
+<a-sphere id="starspheres37" src="#walls" radius=".2" position="-0.103 1 1.716" onclick="movePlayer37()"></a-sphere>
+<a-sphere id="starspheres38" src="#walls" radius=".2" position="-0.103 1 24.659" onclick="movePlayer38()"></a-sphere>
+<a-sphere id="starspheres39" src="#walls" radius=".2" position="-0.103 1 29.403" onclick="movePlayer39()"></a-sphere>
+<a-sphere id="starspheres40" src="#walls" radius=".2" position="-0.103 1 33.911" onclick="movePlayer40()"></a-sphere>
+<a-sphere id="starspheres41" src="#walls" radius=".2" position="-0.103 1 37.891" onclick="movePlayer41()"></a-sphere>
+<a-sphere id="starspheres42" src="#walls" radius=".2" position="-0.103 1 41.698" onclick="movePlayer42()"></a-sphere>
+<a-sphere id="starspheres43" src="#walls" radius=".2" position="-0.103 1 45.584" onclick="movePlayer43()"></a-sphere>
+<a-sphere id="starspheres44" src="#walls" radius=".2" position="-0.103 1 49.409" onclick="movePlayer44()"></a-sphere>
+<a-sphere id="starspheres45" src="#walls" radius=".2" position="-0.103 1 53.076" onclick="movePlayer45()"></a-sphere>
+<a-sphere id="starspheres46" src="#walls" radius=".2" position="-0.103 1 56.527" onclick="movePlayer46()"></a-sphere>
+<a-sphere id="starspheres47" src="#walls" radius=".2" position="1.841 1 58.358" onclick="movePlayer47()"></a-sphere>
+<a-sphere id="starspheres48" src="#walls" radius=".2" position="5.179 1 58.396" onclick="movePlayer48()"></a-sphere>
+<a-sphere id="starspheres49" src="#walls" radius=".2" position="9.338 1 58.432" onclick="movePlayer49()"></a-sphere>
+<a-sphere id="starspheres50" src="#walls" radius=".2" position="13.393 1 58.36" onclick="movePlayer50()"></a-sphere>
+<a-sphere id="starspheres51" src="#walls" radius=".2" position="17.359 1 58.442" onclick="movePlayer51()"></a-sphere>
+<a-sphere id="starspheres52" src="#walls" radius=".2" position="21.065 1 58.454" onclick="movePlayer52()"></a-sphere>
+<a-sphere id="starspheres53" src="#walls" radius=".2" position="24.638 1 58.379" onclick="movePlayer53()"></a-sphere>
+<a-sphere id="starspheres54" src="#walls" radius=".2" position="28.728 1 58.39" onclick="movePlayer54()"></a-sphere>
+<a-sphere id="starspheres55" src="#walls" radius=".2" position="32.712 1 58.386" onclick="movePlayer55()"></a-sphere>
+<a-sphere id="starspheres56" src="#walls" radius=".2" position="36.473 1 58.425" onclick="movePlayer56()"></a-sphere>
+<a-sphere id="starspheres57" src="#walls" radius=".2" position="40.128 1 58.392" onclick="movePlayer57()"></a-sphere>
+<a-sphere id="starspheres58" src="#walls" radius=".2" position="40.098 1 55.164" onclick="movePlayer58()"></a-sphere>
+<a-sphere id="starspheres59" src="#walls" radius=".2" position="40.178 1 52.152" onclick="movePlayer59()"></a-sphere>
+<a-sphere id="starspheres60" src="#walls" radius=".2" position="36.32 1 52.175" onclick="movePlayer60()"></a-sphere>
+<a-sphere id="starspheres61" src="#walls" radius=".2" position="32.748 1 52.113" onclick="movePlayer61()"></a-sphere>
+<a-sphere id="starspheres62" src="#walls" radius=".2" position="29.153 1 52.245" onclick="movePlayer62()"></a-sphere>
+<a-sphere id="starspheres63" src="#walls" radius=".2" position="25.499 1 52.218" onclick=“movePlayer63()"></a-sphere>
+<a-sphere id="starspheres64" src="#walls" radius=".2" position="22.289 1 52.197" onclick=“movePlayer64()"></a-sphere>
+<a-sphere id="starspheres65" src="#walls" radius=".2" position="18.339 1 52.139" onclick=“movePlayer65()"></a-sphere>
+<a-sphere id="starspheres66" src="#walls" radius=".2" position="14.662 1 52.191" onclick=“movePlayer66()"></a-sphere>
+<a-sphere id="starspheres67" src="#walls" radius=".2" position="10.597 1 52.311" onclick=“movePlayer67()"></a-sphere>
+<a-sphere id="starspheres68" src="#walls" radius=".2" position="6.186 1 52.455" onclick=“movePlayer68()"></a-sphere>
+<a-sphere id="starspheres69" src="#walls" radius=".2" position="6.115 1 48.768" onclick=“movePlayer69()"></a-sphere>
+<a-sphere id="starspheres70" src="#walls" radius=".2" position="9.028 1 46.686" onclick=“movePlayer70()"></a-sphere>
+<a-sphere id="starspheres71" src="#walls" radius=".2" position="12.675 1 46.581" onclick=“movePlayer71()"></a-sphere>
+<a-sphere id="starspheres72" src="#walls" radius=".2" position="15.845 1 46.637" onclick=“movePlayer72()”></a-sphere>
+<a-sphere id="starspheres73" src="#walls" radius=".2" position="18.956 1 46.436" onclick=“movePlayer73()"></a-sphere>
+<a-sphere id="starspheres74" src="#walls" radius=".2" position="22.099 1 46.255" onclick=“movePlayer74()"></a-sphere>
+<a-sphere id="starspheres75" src="#walls" radius=".2" position="25.098 1 46.153" onclick=“movePlayer75()”></a-sphere>
+<a-sphere id="starspheres76" src="#walls" radius=".2" position="28.728 1 58.39" onclick=“movePlayer76()"></a-sphere>
+<a-sphere id="starspheres77" src="#walls" radius=".2" position="27.735 5 46.56" onclick=“movePlayer77()"></a-sphere>
+<a-sphere id="starspheres78" src="#walls" radius=".2" position="31.941 1 46.346" onclick=“movePlayer78()"></a-sphere>
+<a-sphere id="starspheres79" src="#walls" radius=".2" position="35.648 1 46.463" onclick=“movePlayer79()”></a-sphere>
+<a-sphere id="starspheres80" src="#walls" radius=".2" position="39.703 1 46.488" onclick=“movePlayer80()”></a-sphere>
+<a-sphere id="starspheres81" src="#walls" radius=".2" position="40.178 1 42.553" onclick="movePlayer81()"></a-sphere>
+<a-sphere id="starspheres82" src="#walls" radius=".2" position="37.383 1 40.318" onclick=“movePlayer82()”></a-sphere>
+<a-sphere id="starspheres83" src="#walls" radius=".2" position="33.244 1 40.299" onclick=“movePlayer83()"></a-sphere>
+<a-sphere id="starspheres84" src="#walls" radius=".2" position="29.153 1 40.236" onclick=“movePlayer84()"></a-sphere>
+<a-sphere id="starspheres85" src="#walls" radius=".2" position="25.121 1 40.328" onclick=“movePlayer85()"></a-sphere>
+<a-sphere id="starspheres86" src="#walls" radius=".2" position="21.25 1 40.289" onclick=“movePlayer86()"></a-sphere>
+<a-sphere id="starspheres87" src="#walls" radius=".2" position="17.406 1 40.231" onclick=“movePlayer87()"></a-sphere>
+<a-sphere id="starspheres88" src="#walls" radius=".2" position="13.557 1 40.126" onclick=“movePlayer88()"></a-sphere>
+<a-sphere id="starspheres89" src="#walls" radius=".2" position="10.099 1 39.994" onclick=“movePlayer89()"></a-sphere>
+<a-sphere id="starspheres90" src="#walls" radius=".2" position="6.495 1 39.888" onclick=“movePlayer90()"></a-sphere>
+<a-sphere id="starspheres91" src="#walls" radius=".2" position="3.878 1 33.916" onclick=“movePlayer91()"></a-sphere>
+<a-sphere id="starspheres92" src="#walls" radius=".2" position="7.782 1 33.831" onclick=“movePlayer92()"></a-sphere>
+<a-sphere id="starspheres93" src="#walls" radius=".2" position="12.208 1 33.911" onclick=“movePlayer93()"></a-sphere>
+<a-sphere id="starspheres94" src="#walls" radius=".2" position="12.247 1 30.122" onclick=“movePlayer94()"></a-sphere>
+<a-sphere id="starspheres95" src="#walls" radius=".2" position="12.205 1 26.347" onclick=“movePlayer95()"></a-sphere>
+<a-sphere id="starspheres96" src="#walls" radius=".2" position="8.403 1 26.262" onclick=“movePlayer96()"></a-sphere>
+<a-sphere id="starspheres97" src="#walls" radius=".2" position="4.794 1 26.251" onclick=“movePlayer97()"></a-sphere>
+<a-sphere id="starspheres98" src="#walls" radius=".2" position="4.87 1 22.489" onclick="movePlayer98()"></a-sphere>
+<a-sphere id="starspheres99" src="#walls" radius=".2" position="7.568 1 20.215" onclick=“movePlayer99()"></a-sphere>
+<a-sphere id="starspheres100" src="#walls" radius=".2" position="11.685 1 20.166" onclick=“movePlayer100()"></a-sphere>
+<a-sphere id="starspheres101" src="#walls" radius=".2" position="13.495 1 17.537" onclick="movePlayer101()"></a-sphere>
+<a-sphere id="starspheres102" src="#walls" radius=".2" position="10.061 1 14.906" onclick="movePlayer102()"></a-sphere>
+<a-sphere id="starspheres103" src="#walls" radius=".2" position="5.827 1 14.257" onclick="movePlayer103()"></a-sphere>
+<a-sphere id="starspheres104" src="#walls" radius=".2" position="6.41 1 10.573" onclick="movePlayer104()"></a-sphere>
+<a-sphere id="starspheres105" src="#walls" radius=".2" position="8.918 1 9.754" onclick="movePlayer105()"></a-sphere>
+<a-sphere id="starspheres106" src="#walls" radius=".2" position="13.333 1 8.117" onclick="movePlayer106()"></a-sphere>
+<a-sphere id="starspheres107" src="#walls" radius=".2" position="16.164 1 8.497" onclick="movePlayer107()"></a-sphere>
+<a-sphere id="starspheres108" src="#walls" radius=".2" position="19.479 1 10.079" onclick="movePlayer108()"></a-sphere>
+<a-sphere id="starspheres109" src="#walls" radius=".2" position="19.697 1 16.015" onclick="movePlayer109()"></a-sphere>
+<a-sphere id="starspheres110" src="#walls" radius=".2" position="19.383 1 21.593" onclick="movePlayer110()"></a-sphere>
+<a-sphere id="starspheres111" src="#walls" radius=".2" position="19.39 1 27.216" onclick="movePlayer111()"></a-sphere>
+<a-sphere id="starspheres112" src="#walls" radius=".2" position="20.024 1 32.689" onclick="movePlayer112()"></a-sphere>
+<a-sphere id="starspheres113" src="#walls" radius=".2" position="24.463 1 33.814" onclick="movePlayer113()"></a-sphere>
+<a-sphere id="starspheres114" src="#walls" radius=".2" position="29.453 1 33.852" onclick="movePlayer114()"></a-sphere>
+<a-sphere id="starspheres115" src="#walls" radius=".2" position="34.532 1 34.113" onclick="movePlayer115()"></a-sphere>
+<a-sphere id="starspheres116" src="#walls" radius=".2" position="38.559 1 34.103" onclick=“movePlayer116()"></a-sphere>
+<a-sphere id="starspheres117" src="#walls" radius=".2" position="41.777 1 33.87" onclick="movePlayer117()"></a-sphere>
+<a-sphere id="starspheres118" src="#walls" radius=".2" position="23.492 1 27.648" onclick=“movePlayer118()"></a-sphere>
+<a-sphere id="starspheres119" src="#walls" radius=".2" position="45.22 1 33.79" onclick=“movePlayer119()"></a-sphere>
+<a-sphere id="starspheres120" src="#walls" radius=".2" position="51.277 1 34.015" onclick=“movePlayer120()"></a-sphere>
+<a-sphere id="starspheres121" src="#walls" radius=".2" position="27.381 1 25.639" onclick=“movePlayer121()"></a-sphere>
+<a-sphere id="starspheres122" src="#walls" radius=".2" position="48.282 1 34.108" onclick=“movePlayer122()"></a-sphere>
+<a-sphere id="starspheres123" src="#walls" radius=".2" position="26.025 1 21.354" onclick=“movePlayer123()"></a-sphere>
+<a-sphere id="starspheres124" src="#walls" radius=".2" position="25.943 1 16.033" onclick=“movePlayer124()"></a-sphere>
+<a-sphere id="starspheres125" src="#walls" radius=".2" position="25.5 1 10.823" onclick="movePlayer125()"></a-sphere>
+<a-sphere id="starspheres126" src="#walls" radius=".2" position="26.741 1 6.036" onclick=“movePlayer126()"></a-sphere>
+<a-sphere id="starspheres127" src="#walls" radius=".2" position="31.511 1 4.874" onclick=“movePlayer127()"></a-sphere>
+<a-sphere id="starspheres128" src="#walls" radius=".2" position="34.408 1 6.582" onclick=“movePlayer128()"></a-sphere>
+<a-sphere id="starspheres129" src="#walls" radius=".2" position="34.532 1 11.104" onclick="movePlayer129()"></a-sphere>
+<!--Sphere 130-->
+<a-sphere id="starspheres130" src="#walls" radius=".2" position="34.965 1 21.132" onclick=“movePlayer130()"></a-sphere>
+<a-sphere id="starspheres131" src="#walls" radius=".2" position="35.181 1 25.904" onclick=“movePlayer131()"></a-sphere>
+<a-sphere id="starspheres132" src="#walls" radius=".2" position="39.81 1 25.914" onclick=“movePlayer132()"></a-sphere>
+<a-sphere id="starspheres133" src="#walls" radius=".2" position="40.45 1 20.985" onclick=“movePlayer133()"></a-sphere>
+<a-sphere id="starspheres134" src="#walls" radius=".2" position="40.911 1 15.699" onclick=“movePlayer134()"></a-sphere>
+<a-sphere id="starspheres135" src="#walls" radius=".2" position="41.024 1 10.079" onclick=“movePlayer135()"></a-sphere>
+<a-sphere id="starspheres136" src="#walls" radius=".2" position="44.347 1 5.928" onclick=“movePlayer136()"></a-sphere>
+<a-sphere id="starspheres137" src="#walls" radius=".2" position="46.592 1 9.033" onclick=“movePlayer137()”></a-sphere>
+<a-sphere id="starspheres138" src="#walls" radius=".2" position="45.821 1 13.63" onclick=“movePlayer138()"></a-sphere>
+<a-sphere id="starspheres139" src="#walls" radius=".2" position="45.985 1 18.237" onclick="movePlayer139()"></a-sphere>
+<!--Sphere 140-->
+<a-sphere id="starspheres140" src="#walls" radius=".2" position="46.571 1 22.561" onclick=“movePlayer140()"></a-sphere>
+<a-sphere id="starspheres140" src="#walls" radius=".2" position="46.571 1 22.561" onclick=“movePlayer140()”></a-sphere>
+<a-sphere id="starspheres141" src="#walls" radius=".2" position="46.181 1 27.369" onclick="movePlayer141()"></a-sphere>
+<a-sphere id="starspheres142" src="#walls" radius=".2" position="50.393 1 27.301" onclick=“movePlayer142()"></a-sphere>
+<a-sphere id="starspheres143" src="#walls" radius=".2" position="51.143 1 22.616" onclick=“movePlayer143()"></a-sphere>
+<a-sphere id="starspheres144" src="#walls" radius=".2" position="51.092 1 18.509" onclick=“movePlayer144()"></a-sphere>
+<a-sphere id="starspheres145" src="#walls" radius=".2" position="50.899 1 14.379" onclick=“movePlayer145()"></a-sphere>
+<a-sphere id="starspheres146" src="#walls" radius=".2" position="51.383 1 9.633" onclick=“movePlayer146()”></a-sphere>
+<a-sphere id="starspheres147" src="#walls" radius=".2" position="53.76 1 5.569" onclick="movePlayer147()"></a-sphere>
+<a-sphere id="starspheres148" src="#walls" radius=".2" position="56.678 1 7.869" onclick=“movePlayer148()"></a-sphere>
+<a-sphere id="starspheres149" src="#walls" radius=".2" position="57.426 1 13.234" onclick=“movePlayer149()"></a-sphere>
+<!--Sphere 150-->
+<a-sphere id="starspheres150" src="#walls" radius=".2" position="56.852 1 13.446" onclick=“movePlayer150()"></a-sphere>
+<a-sphere id="starspheres151" src="#walls" radius=".2" position="57.255 1 18.48" onclick=“movePlayer151()"></a-sphere>
+<a-sphere id="starspheres152" src="#walls" radius=".2" position="56.904 1 23.743" onclick=“movePlayer152()"></a-sphere>
+<a-sphere id="starspheres153" src="#walls" radius=".2" position="56.702 1 29.298" onclick=“movePlayer153()”></a-sphere>
+<a-sphere id="starspheres154" src="#walls" radius=".2" position="56.944 1 34.113" onclick=“movePlayer154()"></a-sphere>
+<a-sphere id="starspheres155" src="#walls" radius=".2" position="56.625 1 39.397" onclick=“movePlayer155()"></a-sphere>
+<a-sphere id="starspheres156" src="#walls" radius=".2" position="53.588 1 42.73" onclick=“movePlayer156()"></a-sphere>
+<a-sphere id="starspheres157" src="#walls" radius=".2" position="49.681 1 46.038" onclick=“movePlayer157()"></a-sphere>
+<a-sphere id="starspheres158" src="#walls" radius=".2" position="46.171 1 48.833" onclick="movePlayer158()"></a-sphere>
+
+
+
+<!--6 4 5 3 1 2-->
+ 
+<a-box id="wall23" src="#walls" width="51.3" height="10" depth="1" position="15.674 5 -21.334" scale="-0.716 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall24" src="#walls" width="51.3" height="10" depth="1" position="34.785 5 -3.415" scale="0.753 1 1"> </a-box>
+ <a-box id="wall25" src="#walls" width="51.3" height="10" depth="1" position="13.071 5 -13.42" scale="-0.122 1 1"> </a-box>
+ <a-box id="wall26" src="#walls" width="51.3" height="10" depth="1" position="6.62 5 -20.207" scale="-0.149 1 1"> </a-box>
+ <a-box id="wall27" src="#walls" width="51.3" height="10" depth="1" position="11.52 5 -27.356" scale="0.16 1 1"> </a-box>
+ <a-box id="wall28" src="#walls" width="51.3" height="10" depth="1" position="6.651 5 -34.288" scale="0.157 1 1"> </a-box>
+ <a-box id="wall29" src="#walls" width="51.3" height="10" depth="1" position="42.446 5 -41.548" scale="-0.122 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall30" src="#walls" width="51.3" height="10" depth="1" position="29.171 5 -38.057" scale="0.538 1 1"> </a-box>
+ <a-box id="wall31" src="#walls" width="51.3" height="10" depth="1" position="18.56 5 -53.934" scale="0.634 1 1.148"> </a-box>
+ <a-box id="wall32" src="#walls" width="51.3" height="10" depth="1" position="34.677 5 -48.669" scale="0.2 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall33" src="#walls" width="51.3" height="10" depth="1" position="23.123 5 -44.455" scale="0.446 1 1"> </a-box>
+ <a-box id="wall34" src="#walls" width="51.3" height="10" depth="1" position="41.147 4.813 -13.066" scale="0.746 1 1"> </a-box>
+ <a-box id="wall35" src="#walls" width="51.3" height="10" depth="1" position="32.45 5 -22.594" scale="0.663 1 1"> </a-box>
+ <a-box id="wall36" src="#walls" width="51.3" height="10" depth="1" position="54.798 5 33.989" scale="-0.122 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall37" src="#walls" width="51.3" height="10" depth="1" position="-29.878 5 2.705" scale="0.867 1 1"> </a-box>
+ <a-box id="wall38" src="#walls" width="51.3" height="10" depth="1" position="42.298 5 -30.76" scale="0.681 1 1"> </a-box>
+ <a-box id="wall39" src="#walls" width="51.3" height="10" depth="1" position="-9.897 5 37.877" scale="-0.845 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall40" src="#walls" width="51.3" height="10" depth="1" position="-12.53 5 15.717" scale="-0.122 1 1"> </a-box>
+ <a-box id="wall41" src="#walls" width="51.3" height="10" depth="1" position="-16.129 5 13.31" scale="-0.122 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall42" src="#walls" width="51.3" height="10" depth="1" position="-34.569 5 10.445" scale="0.724 1 1"> </a-box>
+ <a-box id="wall43" src="#walls" width="51.3" height="10" depth="1" position="-53.093 5 31.744" scale="0.5 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall44" src="#walls" width="51.3" height="10" depth="1" position="-37.749 5 18.657" scale="0.61 1 1"> </a-box>
+ <a-box id="wall45" src="#walls" width="51.3" height="10" depth="1" position="-21.765 5 21.299" scale="-0.122 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall46" src="#walls" width="51.3" height="10" depth="1" position="-26.481 5 51.323" scale="0.394 1 1"> </a-box>
+ <a-box id="wall47" src="#walls" width="51.3" height="10" depth="1" position="-16.621 5 38.601" scale="-0.523 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall48" src="#walls" width="51.3" height="10" depth="1" position="-34.234 5 45.177" scale="0.322 1 1"> </a-box>
+ <a-box id="wall49" src="#walls" width="51.3" height="10" depth="1" position="-35.297 5 27.474" scale="0.338 1 1"> </a-box>
+ <a-box id="wall50" src="#walls" width="51.3" height="10" depth="1" position="-19.219 5 24.796" scale="-0.122 1 1"> </a-box>
+ <a-box id="wall51" src="#walls" width="51.3" height="10" depth="1" position="-26.385 5 35.995" scale="-0.342 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall52" src="#walls" width="51.3" height="10" depth="1" position="-44.185 5 33.989" scale="-0.338 1 1"> </a-box>
+ <a-box id="wall53" src="#walls" width="51.3" height="10" depth="1" position="-4.901 5 -29.58" scale="-0.845 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall54" src="#walls" width="51.3" height="10" depth="1" position="-15.037 5 -35.873" scale="0.932 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall55" src="#walls" width="51.3" height="10" depth="1" position="-27.691 5 -26.996" scale="-0.96 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall56" src="#walls" width="51.3" height="10" depth="1" position="-42.406 5 -29.028" scale="-0.612 1 1" rotation="0 90 0"> </a-box>
+ <a-box id="wall57" src="#walls" width="51.3" height="10" depth="1" position="-48.545 5 -13.789" scale="0.224 1 1"> </a-box>
+ <a-box id="wall58" src="#walls" width="51.3" height="10" depth="1" position="-54.543 5 -23.167" scale="0.214 1 1"> </a-box>
+ <a-box id="wall59" src="#walls" width="51.3" height="10" depth="1" position="-48.138 5 -31.695" scale="0.221 1 1"> </a-box>
+ <a-box id="wall60" src="#walls" width="51.3" height="10" depth="1" position="-54.257 5 -38.261" scale="-0.218 1 1"> </a-box>
+
+
+
+
+  </a-scene>
+  <!--<a-scene id = "second" visible=false>-->
+  <!--    <a-sky = "white"></a-sky>-->
+  <!--</a-scene>-->
+</body>
+
+</html>
